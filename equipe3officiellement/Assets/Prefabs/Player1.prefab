@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -4.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490112}
@@ -377,7 +377,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Propulsor1: {fileID: 484562}
   Propulsor2: {fileID: 487860}
+  FirePartial: 0
+  PropulsorRange: 4
   PropulsorForce: 1
+  FireExtinguishingPower: 1
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!136 &13615986
 CapsuleCollider:
   m_ObjectHideFlags: 1
