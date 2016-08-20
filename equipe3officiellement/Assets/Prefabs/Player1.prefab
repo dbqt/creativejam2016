@@ -40,6 +40,7 @@ GameObject:
   - 4: {fileID: 433078}
   - 114: {fileID: 11465084}
   - 54: {fileID: 5425196}
+  - 65: {fileID: 6592768}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -364,6 +365,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6592768
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11465084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,6 +394,7 @@ MonoBehaviour:
   PropulsorRange: 4
   PropulsorForce: 2
   FireExtinguishingPower: 1
+  MaxSpeed: 0
   GroundMask:
     serializedVersion: 2
     m_Bits: 256
@@ -3504,6 +3518,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: PropulsorForce
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
