@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
     public E_GAME_STATE stateGame=E_GAME_STATE.START_MENU;
     public EndScreenManager endScreen;
     private bool[] playersConfirmed = new bool[4];
+    public GameObject winnerScreen;
 
     void Awake()
     {
@@ -118,7 +119,8 @@ public class GameController : MonoBehaviour {
     }
     public void ShowWinner()
     {
-        if(Input.anyKeyDown)
+        winnerScreen.SetActive(true);
+        if (Input.anyKeyDown)
         {
             backToMenu();
         }
