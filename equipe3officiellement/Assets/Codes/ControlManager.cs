@@ -7,12 +7,12 @@ public class ControlManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        string[] o = Input.GetJoystickNames();
+       /* string[] o = Input.GetJoystickNames();
         foreach (string name in o)
         {
 
             Debug.Log(name);
-        }
+        }*/
     }
 	
 	// Update is called once per frame

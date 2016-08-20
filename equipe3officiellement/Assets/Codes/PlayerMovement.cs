@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float PropulsorRange;
     public float PropulsorForce;
     public float FireExtinguishingPower;
+    public float MaxSpeed;
     public LayerMask GroundMask;
 
     private Vector3 projectedPropulsor1;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
+        // add translation movement
         float angle1 = Propulsor1.eulerAngles.y;
         float angle2 = Propulsor2.eulerAngles.y;
 
@@ -28,6 +30,12 @@ public class PlayerMovement : MonoBehaviour {
 
         this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle1), 0f, Mathf.Cos(Mathf.Deg2Rad * angle1)).normalized * PropulsorForce);
         this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle2), 0f, Mathf.Cos(Mathf.Deg2Rad * angle2)).normalized * PropulsorForce);
+
+        this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(this.gameObject.GetComponent<Rigidbody>().velocity, MaxSpeed);
+
+        //rotate player body
+        Vector3 direction = this.gameObject.GetComponent<Rigidbody>().velocity;
+        transform.GetChild(transform.childCount - 1).LookAt(transform.position + direction.normalized);
     }
 
     void Update ()

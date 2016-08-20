@@ -72,11 +72,11 @@ Material:
       data:
         first:
           name: _ReflDistort
-        second: 0.24
+        second: 0.4
       data:
         first:
           name: _RefrDistort
-        second: 0.46
+        second: 0.48
     m_Colors:
       data:
         first:
@@ -89,7 +89,7 @@ Material:
       data:
         first:
           name: _RefrColor
-        second: {r: 0.9372549, g: 0.9372549, b: 0.9372549, a: 1}
+        second: {r: 0.49210644, g: 0.73380256, b: 0.9044118, a: 1}
       data:
         first:
           name: _Fresnel_ST
