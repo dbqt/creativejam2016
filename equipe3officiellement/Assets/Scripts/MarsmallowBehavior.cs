@@ -24,18 +24,9 @@ public class MarsmallowBehavior : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            colorIndex = Mathf.Clamp(colorIndex += 2.0f, 0.0f, 100.0f);
-        }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            colorIndex = Mathf.Clamp(colorIndex -= 2.0f, 0.0f, 100.0f);
-        }
+        applyColorIndex(GameController.instance.marshIndex[GetComponent<MarshmallowRoasting>().index]);
 
-        //applyColorIndex(colorIndex);
-        //Debug.Log(colorIndex);
 	}
 
     public void applyColorIndex(float newColorIndex)
