@@ -11,6 +11,7 @@ public class GroundController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         node.CalculateFlameRate(Time.deltaTime);
-        GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white,Color.red,node.flameLevel/10f);
+        GetComponentInChildren<ParticleSystem>().startSize = node.flameLevel / 10f;
+        //GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white,Color.red,node.flameLevel/10f);
     }
 }
