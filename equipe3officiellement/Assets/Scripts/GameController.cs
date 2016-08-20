@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
+
+
+
+
+
     /*
     //USED FOR MARSHMALLOW GENERATION
 
@@ -13,6 +18,8 @@ public class GameController : MonoBehaviour {
     
     private bool isCreated = false;
     */
+
+    enum E_GAME_STATE { START_MENU,SHOWING_MARSH,PLAYING,ENDSCREEN}
     
     //MARSHMALLOW - public
     public GameObject marshmallow;
@@ -32,31 +39,39 @@ public class GameController : MonoBehaviour {
     private float initialWaterLevel;
     private float x;
     private float z;
+    [Tooltip("Minimum for the cooking goal")]
+    public float minDesiredMarshmallow;
+    [Tooltip("Maximum for the cooking goal")]
+    public float maxDesiredMarshmallow;
+    public float[] marshIndex = new float[4] { 0, 0, 0, 0 };
+    public float marshGoal = 0;
+    public static GameController instance;
 
+
+    void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Use this for initialization
     void Start () {
         initialWaterLevel = waterLevel.position.y;
         x = waterLevel.position.x;
         z = waterLevel.position.z;
-	}
+        marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            timerStarted = true;
-            timer = totalTimeToFill;
-        }
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            newMarshmallow = Instantiate(marshmallow, spawnLocation.position, spawnLocation.rotation) as GameObject;
-            newMarshmallow.GetComponent<MarsmallowBehavior>().applyColorIndex(0);
-        }
+        timerStarted = true;
+        timer = totalTimeToFill;
+        
 
         if (timerStarted)
         {
-            Debug.Log(timer + " __ " + waterLevel.position.y);
+
             timer -= Time.deltaTime;
             waterLevel.position= new Vector3(
             x,

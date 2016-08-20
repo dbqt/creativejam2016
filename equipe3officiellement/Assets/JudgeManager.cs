@@ -17,10 +17,11 @@ public class JudgeManager : MonoBehaviour {
     public List<int> winners = new List<int>();
     // Use this for initialization
     void Start () {
+        
         //debug
-        GameManager.instance.marshGoal = UnityEngine.Random.Range(0, 100);
+        GameController.instance.marshGoal = UnityEngine.Random.Range(0, 100);
         for(int i =0;i<4;i++)
-            GameManager.instance.marshIndex[i]= UnityEngine.Random.Range(0, 100);
+            GameController.instance.marshIndex[i]= UnityEngine.Random.Range(0, 100);
 
         //*********************************************************
 
@@ -35,7 +36,7 @@ public class JudgeManager : MonoBehaviour {
         double biggestVal = -1;
         for (int i = 0; i < 4; i++)
         {
-            proxims[i] = Math.Round(Mathf.Abs(GameManager.instance.marshGoal - GameManager.instance.marshIndex[i]) / 100,2);
+            proxims[i] = Math.Round(Mathf.Abs(GameController.instance.marshGoal - GameController.instance.marshIndex[i]) / 100,2);
             if (proxims[i] > biggestVal)
                 biggestVal = proxims[i];
         }
