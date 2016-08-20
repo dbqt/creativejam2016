@@ -23,6 +23,7 @@ public class FireManager : MonoBehaviour {
             {
                 GroundController newGC=Instantiate(groundTile);
                 newGC.transform.position = new Vector3(x+transform.position.x-mapSize.x/2, 0, y + transform.position.y - mapSize.y / 2);
+                newGC.transform.Rotate(new Vector3(0f, Random.Range(0f,360f),0f));
                 newGC.node = new Node(flamabilityModifier);
                 map[x][y] = newGC;
             }
