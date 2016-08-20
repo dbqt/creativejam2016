@@ -5,19 +5,28 @@ public class GameController : MonoBehaviour {
     /*
     //USED FOR MARSHMALLOW GENERATION
 
-    public GameObject marshmallow;
-    public Transform spawnLocation;
+    
+    
     public float minDesiredMarshmallow;
     public float maxDesiredMarshmallow;
 
-    private GameObject newMarshmallow;
+    
     private bool isCreated = false;
     */
+    
+    //MARSHMALLOW - public
+    public GameObject marshmallow;
+    public Transform spawnLocation;
 
+    //MARSHMALLOW - private
+    private GameObject newMarshmallow;
+
+    //WATER LEVEL - public
     public Transform waterLevel;
     public float totalTimeToFill;
     public float targetFullWaterLevel;
-
+    
+    //WATER LEVEL - private
     private bool timerStarted = false;
     private float timer;
     private float initialWaterLevel;
@@ -39,6 +48,12 @@ public class GameController : MonoBehaviour {
             timerStarted = true;
             timer = totalTimeToFill;
         }
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            newMarshmallow = Instantiate(marshmallow, spawnLocation.position, spawnLocation.rotation) as GameObject;
+            newMarshmallow.GetComponent<MarsmallowBehavior>().applyColorIndex(0);
+        }
+
         if (timerStarted)
         {
             Debug.Log(timer + " __ " + waterLevel.position.y);
