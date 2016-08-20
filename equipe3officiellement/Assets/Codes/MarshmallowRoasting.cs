@@ -5,7 +5,9 @@ public class MarshmallowRoasting : MonoBehaviour {
 
     public float RoastingRange;
     public float RoastingRateModifier;
-    public LayerMask GroundMask;    
+    public LayerMask GroundMask;
+
+    public int index;
 
 	// Use this for initialization
 	void Start () {
@@ -23,8 +25,7 @@ public class MarshmallowRoasting : MonoBehaviour {
 
         foreach(Collider col in grounds)
         {
-            //update color of marshmallow
-            //RoastingLevel += col.gameObject.GetComponent<GroundController>().node.flameLevel * RoastingRateModifier * Time.deltaTime;
+            GameController.instance.marshIndex[index] += col.gameObject.GetComponent<GroundController>().node.flameLevel * RoastingRateModifier * Time.deltaTime;
         }
 
     }
