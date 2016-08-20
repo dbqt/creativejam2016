@@ -2,46 +2,76 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
+
+
+
+
+
     /*
     //USED FOR MARSHMALLOW GENERATION
 
-    public GameObject marshmallow;
-    public Transform spawnLocation;
+    
+    
     public float minDesiredMarshmallow;
     public float maxDesiredMarshmallow;
 
-    private GameObject newMarshmallow;
+    
     private bool isCreated = false;
     */
 
+    enum E_GAME_STATE { START_MENU,SHOWING_MARSH,PLAYING,ENDSCREEN}
+    
+    //MARSHMALLOW - public
+    public GameObject marshmallow;
+    public Transform spawnLocation;
+
+    //MARSHMALLOW - private
+    private GameObject newMarshmallow;
+
+    //WATER LEVEL - public
     public Transform waterLevel;
     public float totalTimeToFill;
     public float targetFullWaterLevel;
-
+    
+    //WATER LEVEL - private
     private bool timerStarted = false;
     private float timer;
     private float initialWaterLevel;
     private float x;
     private float z;
+    [Tooltip("Minimum for the cooking goal")]
+    public float minDesiredMarshmallow;
+    [Tooltip("Maximum for the cooking goal")]
+    public float maxDesiredMarshmallow;
+    public float[] marshIndex = new float[4] { 0, 0, 0, 0 };
+    public float marshGoal = 0;
+    public static GameController instance;
 
+
+    void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Use this for initialization
     void Start () {
         initialWaterLevel = waterLevel.position.y;
         x = waterLevel.position.x;
         z = waterLevel.position.z;
-	}
+        marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            timerStarted = true;
-            timer = totalTimeToFill;
-        }
+        timerStarted = true;
+        timer = totalTimeToFill;
+        
+
         if (timerStarted)
         {
-            Debug.Log(timer + " __ " + waterLevel.position.y);
+
             timer -= Time.deltaTime;
             waterLevel.position= new Vector3(
             x,
