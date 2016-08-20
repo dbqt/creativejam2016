@@ -65,6 +65,10 @@ public class GameController : MonoBehaviour {
             x = waterLevel.position.x;
             z = waterLevel.position.z;
             marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
+            for(int i =0;i<4;i++)
+            {
+                (Instantiate(marshmallow,spawnLocation.GetChild(i).position,Quaternion.identity) as GameObject).GetComponent<MarshmallowRoasting>().index = i;
+            }
             UnlockGame();
         }
 
