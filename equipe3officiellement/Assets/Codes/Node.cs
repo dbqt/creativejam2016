@@ -27,6 +27,6 @@ public class Node  {
         flameRate +=(dt * fireTotal * flamabilityModifier);
         
         flameLevel += flameRate;
-        flameLevel = Mathf.Clamp(flameLevel, 0f, 7f);
+        flameLevel = Mathf.Clamp(flameLevel, 0f, 10f);
     }
 }
