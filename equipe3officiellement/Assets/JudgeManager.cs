@@ -18,10 +18,10 @@ public class JudgeManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
-        //debug
-        GameController.instance.marshGoal = UnityEngine.Random.Range(0, 100);
-        for(int i =0;i<4;i++)
-            GameController.instance.marshIndex[i]= UnityEngine.Random.Range(0, 100);
+        ////debug
+        //GameController.instance.marshGoal = UnityEngine.Random.Range(0, 100);
+        //for(int i =0;i<4;i++)
+        //    GameController.instance.marshIndex[i]= UnityEngine.Random.Range(0, 100);
 
         //*********************************************************
 

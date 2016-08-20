@@ -8,13 +8,13 @@ public class MenuScript : MonoBehaviour {
         Debug.Log("You clicked on Start Menu");
 
         // Load Scene for StartGame
-        UnityEngine.SceneManagement.SceneManager.LoadScene("t_movement");
+        GameController.instance.StartGame();
     }
 
     public void OnExitGame()
     {
         Debug.Log("You clicked Exit Game!");
 
-        //Application.Quit();
+        Application.Quit();
     }
 }

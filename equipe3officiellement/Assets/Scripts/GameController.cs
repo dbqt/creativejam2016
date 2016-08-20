@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class GameController : MonoBehaviour {
     private bool isCreated = false;
     */
 
-    enum E_GAME_STATE { START_MENU,SHOWING_MARSH,PLAYING,ENDSCREEN}
+    public enum E_GAME_STATE { START_MENU,SHOWING_MARSH,SHOWING_MAP,PLAYING,ENDSCREEN}
     
     //MARSHMALLOW - public
     public GameObject marshmallow;
@@ -46,43 +47,59 @@ public class GameController : MonoBehaviour {
     public float[] marshIndex = new float[4] { 0, 0, 0, 0 };
     public float marshGoal = 0;
     public static GameController instance;
-
+    public E_GAME_STATE stateGame=E_GAME_STATE.START_MENU;
+    public EndScreenManager endScreen;
+    private bool[] playersConfirmed = new bool[4];
 
     void Awake()
     {
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        instance = this;    
     }
     // Use this for initialization
     void Start () {
-        initialWaterLevel = waterLevel.position.y;
-        x = waterLevel.position.x;
-        z = waterLevel.position.z;
-        marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
+        if(stateGame==E_GAME_STATE.SHOWING_MAP)
+        {
+            stateGame = E_GAME_STATE.SHOWING_MAP;
+            initialWaterLevel = waterLevel.position.y;
+            x = waterLevel.position.x;
+            z = waterLevel.position.z;
+            marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
+            UnlockGame();
+        }
+
 
     }
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
 
+    }
     // Update is called once per frame
     void Update()
     {
-        timerStarted = true;
-        timer = totalTimeToFill;
-        
-
-        if (timerStarted)
+        switch (stateGame)
         {
 
-            timer -= Time.deltaTime;
-            waterLevel.position= new Vector3(
-            x,
-            Mathf.Clamp(Mathf.Lerp(targetFullWaterLevel, initialWaterLevel, (timer / totalTimeToFill)), initialWaterLevel,targetFullWaterLevel),
-            z); 
-        }
-        if (timer < 0)
-        {
-            timerStarted = false;
-            Debug.Log("Time's Up!");
-        }
+            case E_GAME_STATE.PLAYING:               
+                if (timerStarted)
+                {
+
+                    timer -= Time.deltaTime;
+                    waterLevel.position = new Vector3(
+                    x,
+                    Mathf.Clamp(Mathf.Lerp(targetFullWaterLevel, initialWaterLevel, (timer / totalTimeToFill)), initialWaterLevel, targetFullWaterLevel),
+                    z);
+                }
+                if (timer < 0)
+                {
+                    timerStarted = false;
+                    Debug.Log("Time's Up!");
+                    StopGame();
+                }
+                break;
+
+    }
+       
         /*
         //USED FOR MARSHMALLOW GENERATION
         if (isCreated == false && Input.GetKeyDown(KeyCode.Space))
@@ -92,5 +109,28 @@ public class GameController : MonoBehaviour {
             newMarshmallow.GetComponent<MarsmallowBehavior>().applyColorIndex(Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow));
         }
         */
+    
+
+    }
+    void StopGame()
+    {
+        endScreen.gameObject.SetActive( true);
+    }
+    public void ShowWinner()
+    {
+        if(Input.anyKeyDown)
+        {
+            backToMenu();
+        }
+    }
+    private void backToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    void UnlockGame()
+    {
+        stateGame = E_GAME_STATE.PLAYING;
+        timerStarted = true;
+        timer = totalTimeToFill;
     }
 }

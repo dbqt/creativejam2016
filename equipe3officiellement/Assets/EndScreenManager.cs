@@ -56,8 +56,12 @@ public class EndScreenManager : MonoBehaviour {
                 commentText[i].text = judge.answerString[i];
             }
             winnerPicked = true;
-            Debug.Log(judge.winners[0]);
+            
 
+        }
+        if(winnerPicked)
+        {
+            GameController.instance.ShowWinner();
         }
     }
     IEnumerator StartShowScore()
