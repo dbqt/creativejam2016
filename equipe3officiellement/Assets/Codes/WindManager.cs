@@ -43,8 +43,9 @@ public class WindManager : MonoBehaviour {
         sidePower[(int)E_SIDE.NORTH_WEST] += windVector.y * 0.5f - windVector.x * 0.5f;
         sidePower[(int)E_SIDE.SOUTH_WEST] += -windVector.y * 0.5f - windVector.x * 0.5f;
         sidePower[(int)E_SIDE.SOUTH_EAST] += -windVector.y * 0.5f + windVector.x * 0.5f;
+
         timer = Time.time  + Random.Range(windChangeRange.x, windChangeRange.y);
-        cam.GetComponent<CameraShake>().Shake();
+
         transform.eulerAngles = new Vector3(0f, Mathf.Rad2Deg* Mathf.Atan2(-windVector.normalized.x, -windVector.normalized.y), 0f);
     }
 }
