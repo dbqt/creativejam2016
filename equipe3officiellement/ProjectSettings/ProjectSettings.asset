@@ -196,6 +196,7 @@ PlayerSettings:
   wiiUSystemHeapSize: 128
   wiiUTVStartupScreen: {fileID: 0}
   wiiUGamePadStartupScreen: {fileID: 0}
+  wiiUDrcBufferDisabled: 0
   wiiUProfilerLibPath: 
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
@@ -426,6 +427,7 @@ PlayerSettings:
   iOS::EnableIncrementalBuildSupportForIl2cpp: 1
   iOS::ScriptingBackend: 1
   boolPropertyNames:
+<<<<<<< HEAD
   - Android::VR::enable
   - Metro::VR::enable
   - N3DS::VR::enable
@@ -531,6 +533,23 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
+=======
+  - WebGL::analyzeBuildSize
+  - WebGL::dataCaching
+  - WebGL::useEmbeddedResources
+  - XboxOne::enus
+  WebGL::analyzeBuildSize: 0
+  WebGL::dataCaching: 0
+  WebGL::useEmbeddedResources: 0
+  XboxOne::enus: 1
+  stringPropertyNames:
+  - WebGL::emscriptenArgs
+  - WebGL::template
+  - additionalIl2CppArgs::additionalIl2CppArgs
+  WebGL::emscriptenArgs: 
+  WebGL::template: APPLICATION:Default
+  additionalIl2CppArgs::additionalIl2CppArgs: 
+>>>>>>> 6477b09f8e501be3af69a8ff8a769f8304f48323
   cloudProjectId: 
   projectName: 
   organizationId: 
