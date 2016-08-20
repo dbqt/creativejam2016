@@ -16,6 +16,10 @@ public class JudgeManager : MonoBehaviour {
         GameManager.instance.marshGoal = Random.Range(0, 100);
         for(int i =0;i<4;i++)
             GameManager.instance.marshIndex[i]= Random.Range(0, 100);
+
+
+
+
         comments = new string[4][];
         comments[(int)E_GOAL_PROXIMITY.VERYFAR] = new string[] { "Smore far than close ! ", "You're Fire...d", "More chicken than marshmallow", "As bad as my puns", "Hot as a hutt" };
         comments[(int)E_GOAL_PROXIMITY.MEDIUM] = new string[] { "Smore close than far! ", "TIL marshmallow cooking is not for everyone", "Maybe it is the branch", "Hot as a hutt" };
