@@ -135,6 +135,7 @@ public class FireManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         avgFlameLevel = updateAvgFlameLvl();
+        if (flameAudio == null) return;
         if (avgFlameLevel > 0.00f)
         {
             if (flameAudio.isPlaying == false)
