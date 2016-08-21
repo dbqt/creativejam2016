@@ -11,13 +11,16 @@ public class Node  {
         flameLevel = 0;
         this.flamabilityModifier = flamabilityModifier;
         neighbours = new List<KeyValuePair<E_SIDE, Node>>();
+        isInvincible = false;
     }
     public float flameLevel;
     public float flameRate;
+    public bool isInvincible;
     private float flamabilityModifier;
     public List<KeyValuePair<E_SIDE,Node>> neighbours; 
     public void CalculateFlameRate(float dt)
     {
+        
         flameRate = Mathf.Clamp(flameRate, -0.5f, 0.02f);
         float fireTotal = 0;
         for(int i =0;i<neighbours.Count;i++)
@@ -27,6 +30,6 @@ public class Node  {
         flameRate +=(dt * fireTotal * flamabilityModifier);
         
         flameLevel += flameRate;
-        flameLevel = Mathf.Clamp(flameLevel, 0f, 10f);
+        flameLevel = Mathf.Clamp(flameLevel, isInvincible ? 10f : 0f, 10f);
     }
 }
