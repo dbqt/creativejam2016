@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
@@ -151,12 +152,12 @@ public class GameController : MonoBehaviour {
         ep.emit = false;
         Camera.main.GetComponent<Animation>().Play("EndScreenCamera");
     }
-    public void ShowWinner()
+    public void ShowWinner(List<int> winners)
     {
         stateGame = E_GAME_STATE.SCORE_SCREEN;
-        ActiveWinnerScreen();
+        ActiveWinnerScreen(winners);
     }
-    public void ActiveWinnerScreen()
+    public void ActiveWinnerScreen(List<int> winners)
     {
         stateGame = E_GAME_STATE.ENDSCREEN;
         winnerScreen.SetActive(true);
