@@ -508,6 +508,9 @@ MonoBehaviour:
   - {fileID: 11477422}
   judge: {fileID: 11466240}
   winnerText: {fileID: 0}
+  draw2: {fileID: 0}
+  draw3: {fileID: 0}
+  draw: {fileID: 0}
 --- !u!114 &11427456
 MonoBehaviour:
   m_ObjectHideFlags: 1
