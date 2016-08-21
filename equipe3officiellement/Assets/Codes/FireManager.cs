@@ -66,7 +66,19 @@ public class FireManager : MonoBehaviour {
         }
 
     }
-	
+	public void StopFire()
+    {
+        for (int x = 0; x < mapSize.x; x++)
+        {
+            
+            for (int y = 0; y < mapSize.y; y++)
+            {
+
+                map[x][y].node.flameLevel = 0;
+                map[x][y].node.flameRate = 0;
+            }
+        }
+    }
 	// Update is called once per frame
 	void Update () {
 	    

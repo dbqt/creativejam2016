@@ -12,6 +12,7 @@ public class EndScreenManager : MonoBehaviour {
     private bool[] finishedDuplicate = new bool[4];
     private bool readyPickWinner;
     private bool winnerPicked;
+    private bool doublingCheck;
     // Use this for initialization
     void Start () {
         StartCoroutine(StartShowScore());
@@ -19,9 +20,9 @@ public class EndScreenManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (finished[0] && finished[1] && finished[2] && finished[3] && !finishedDuplicate[0])
+        if (finished[0] && finished[1] && finished[2] && finished[3] && !finishedDuplicate[3] && !doublingCheck)
         {
-
+            doublingCheck = true;
             int scoreToTest;
             List<int> doubles = new List<int>();
             for (int j = 0; j < 4; j++)
@@ -62,6 +63,7 @@ public class EndScreenManager : MonoBehaviour {
         if(winnerPicked)
         {
             GameController.instance.ShowWinner();
+            this.enabled = false;
         }
     }
     IEnumerator StartShowScore()

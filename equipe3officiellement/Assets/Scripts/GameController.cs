@@ -51,7 +51,11 @@ public class GameController : MonoBehaviour {
     public EndScreenManager endScreen;
     private bool[] playersConfirmed = new bool[4];
     public GameObject winnerScreen;
-
+    public GameObject winningText1;
+    public GameObject winningText2;
+    public GameObject winnerPicture;
+    public EllipsoidParticleEmitter ep;
+    public FireManager fm;
     void Awake()
     {
         instance = this;    
@@ -95,10 +99,14 @@ public class GameController : MonoBehaviour {
                     Mathf.Clamp(Mathf.Lerp(targetFullWaterLevel, initialWaterLevel, (timer / totalTimeToFill)), initialWaterLevel, targetFullWaterLevel),
                     z);
                 }
+                if(timer <1.5f)
+                {
+                    ep.emit = true;
+                }
                 if (timer < 0)
                 {
                     timerStarted = false;
-                    Debug.Log("Time's Up!");
+                
                     StopGame();
                 }
                 break;
@@ -120,10 +128,22 @@ public class GameController : MonoBehaviour {
     void StopGame()
     {
         endScreen.gameObject.SetActive( true);
+
+        fm.StopFire();
+        
+        StartCoroutine(ExtinguishSmoke());
+    }
+    private IEnumerator ExtinguishSmoke()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ep.emit = false;
     }
     public void ShowWinner()
     {
         winnerScreen.SetActive(true);
+        winningText1.SetActive(true);
+        winningText2.SetActive(true);
+        winnerPicture.SetActive(true);
         if (Input.anyKeyDown)
         {
             backToMenu();

@@ -36,7 +36,7 @@ public class JudgeManager : MonoBehaviour {
         double biggestVal = -1;
         for (int i = 0; i < 4; i++)
         {
-            proxims[i] = Math.Round(Mathf.Abs(GameController.instance.marshGoal - GameController.instance.marshIndex[i]) / 100,2);
+            proxims[i] = Math.Round(Mathf.Abs(GameController.instance.marshGoal - Mathf.Clamp(GameController.instance.marshIndex[i],0,100)) / 100,2);
             if (proxims[i] > biggestVal)
                 biggestVal = proxims[i];
         }
