@@ -40,10 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ba0279bf55c1841a69b1089a500ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flamabilityModifier: 1
-  fireCenterSize: 1
+  flamabilityModifier: 0.001
+  fireCenterSize: 2
   centerIntensity: 4
-  mapSize: {x: 5, y: 5}
+  mapSize: {x: 20, y: 20}
   groundTile: {fileID: 11485058, guid: da9f5327be9f41640b345dba0ddc36e8, type: 2}
 --- !u!1001 &100100000
 Prefab:
