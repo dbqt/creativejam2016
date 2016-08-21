@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2381048}
   - 95: {fileID: 9537786}
   m_Layer: 0
-  m_Name: LEAVE_LO
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
