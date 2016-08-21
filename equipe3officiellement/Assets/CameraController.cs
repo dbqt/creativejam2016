@@ -16,4 +16,12 @@ public class CameraController : MonoBehaviour {
     {
         GameController.instance.ShowScoreScreen();
     }
+    void NextAnim()
+    {
+        GetComponent<Animation>().Play("LevelIntro2");
+    }
+    void StartGame()
+    {
+        GameController.instance.UnlockGame();
+    }
 }

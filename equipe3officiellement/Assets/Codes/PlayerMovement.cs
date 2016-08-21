@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     public float MaxSpeed;
     public LayerMask GroundMask;
 
+    public bool isLocked;
+
     public AudioClip[] audioClips;
     public AudioClip[] collisionClips;
     public float soundPlayRate;
@@ -32,6 +34,8 @@ public class PlayerMovement : MonoBehaviour {
 
         audioSource = gameObject.GetComponent<AudioSource>();
         SoundReplacer();
+
+        isLocked = true;
 
     }
 	
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	void FixedUpdate () {
+        if (isLocked) return;
         // add translation movement
         float angle1 = Propulsor1.eulerAngles.y;
         float angle2 = Propulsor2.eulerAngles.y;

@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour {
     public GameObject[] marshmallows = new GameObject[4];
     public FireManager fm;
     private AudioSource musicSource;
-    
+    private ControlManager ctrl;
 
     void Awake()
     {
@@ -70,12 +70,13 @@ public class GameController : MonoBehaviour {
     void Start () {
         if(stateGame==E_GAME_STATE.SHOWING_MAP)
         {
+            ctrl = FindObjectOfType<ControlManager>();
             stateGame = E_GAME_STATE.SHOWING_MAP;
             initialWaterLevel = waterLevel.position.y;
             x = waterLevel.position.x;
             z = waterLevel.position.z;
             marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
-
+            FindObjectOfType<GuimauveGoal>().enabled = true;
             for(int i =0;i<4;i++)
             {
                 marshmallows[i] = Instantiate(marshmallow, spawnMashLocations[i].position, Quaternion.identity) as GameObject;
@@ -84,7 +85,9 @@ public class GameController : MonoBehaviour {
             }
             musicSource = GetComponent<AudioSource>();
             musicSource.Play();
-            UnlockGame();
+            Camera.main.GetComponent<Animation>()["LevelIntro1"].speed/=3;
+            Camera.main.GetComponent<Animation>()["LevelIntro2"].speed /= 3;
+            Camera.main.GetComponent<Animation>().Play("LevelIntro1");
         }
 
 
@@ -127,6 +130,13 @@ public class GameController : MonoBehaviour {
                     backToMenu();
                 }
                 break;
+            case E_GAME_STATE.SHOWING_MAP:
+                ctrl.Player1.GetComponent<PlayerMovement>().isLocked = true;
+                ctrl.Player2.GetComponent<PlayerMovement>().isLocked = true;
+                ctrl.Player3.GetComponent<PlayerMovement>().isLocked = true;
+                ctrl.Player4.GetComponent<PlayerMovement>().isLocked = true;
+                break;
+                
 
     }
        
@@ -142,6 +152,7 @@ public class GameController : MonoBehaviour {
     
 
     }
+
     void StopGame()
     {
         
@@ -202,10 +213,15 @@ public class GameController : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
-    void UnlockGame()
+    public void UnlockGame()
     {
         stateGame = E_GAME_STATE.PLAYING;
+        fm.gameObject.SetActive(true);
         timerStarted = true;
         timer = totalTimeToFill;
+        ctrl.Player1.GetComponent<PlayerMovement>().isLocked = false;
+        ctrl.Player2.GetComponent<PlayerMovement>().isLocked = false;
+        ctrl.Player3.GetComponent<PlayerMovement>().isLocked = false;
+        ctrl.Player4.GetComponent<PlayerMovement>().isLocked = false;
     }
 }
