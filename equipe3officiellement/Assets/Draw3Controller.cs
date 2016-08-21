@@ -9,11 +9,9 @@ public class Draw3Controller : MonoBehaviour {
     public Image img2;
     public Image img3;
     public Text txt1;
-    public Text txt2;
-    public Text txt3;
     // Use this for initialization
     void Start () {
-	
+        GetComponent<Animation>().Play("EndScreenDraw3");
 	}
 	
 	// Update is called once per frame

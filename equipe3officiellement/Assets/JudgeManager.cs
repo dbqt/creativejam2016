@@ -28,7 +28,7 @@ public class JudgeManager : MonoBehaviour {
 
         comments = new string[4][];
         comments[(int)E_GOAL_PROXIMITY.VERYFAR] = new string[] { "Nul", "GG(Get good)", "Guignol"};
-        comments[(int)E_GOAL_PROXIMITY.MEDIUM] = new string[] { "Smore close than far! ", "Meh", "Horrible", "Ok" };
+        comments[(int)E_GOAL_PROXIMITY.MEDIUM] = new string[] { "Smore close than far! ", "Meh", "...", "Ok" };
         comments[(int)E_GOAL_PROXIMITY.CLOSE] = new string[] { "Hot as a hutt", "Gui-me smore!", "Delicieux", "Très bon" };
         comments[(int)E_GOAL_PROXIMITY.PERFECT] = new string[] { "La perfection", "Sugar God", "Magnifique" };
 
@@ -36,14 +36,16 @@ public class JudgeManager : MonoBehaviour {
         double biggestVal = -1;
         for (int i = 0; i < 4; i++)
         {
-            proxims[i] = Math.Round(Mathf.Abs(GameController.instance.marshGoal - Mathf.Clamp(GameController.instance.marshIndex[i],0,100)) / 100,2);
+            proxims[i] = Math.Round(Mathf.Abs(GameController.instance.marshGoal- Mathf.Clamp(GameController.instance.marshIndex[i], 0, 100)) / 100,2);
+            proxims[i] = Math.Abs(proxims[i] - 1);
+            Debug.Log(proxims[i]);
             if (proxims[i] > biggestVal)
                 biggestVal = proxims[i];
         }   
         for (int i = 0; i < 4; i++)
         {
             if(proxims[i]== biggestVal)
-                winners.Add(i+1);
+                winners.Add(i);
         }
         for (int i = 0; i < 4; i++)
         {

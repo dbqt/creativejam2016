@@ -5,7 +5,7 @@ public class FinishScreenScripts : MonoBehaviour {
     public GameObject image;
 	// Use this for initialization
 	void Start () {
-        GetComponent<Animation>().Play("FinishScreen");
+
 	}
 	void PlayImageAnim()
     {

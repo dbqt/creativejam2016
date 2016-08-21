@@ -36,7 +36,7 @@ public class MarshmallowRoasting : MonoBehaviour {
         {
             gameObject.GetComponentInChildren<ParticleSystem>().Pause();
         }
-        //Debug.Log(isBurning);
+
 
     }
 }
