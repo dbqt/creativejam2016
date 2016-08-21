@@ -8,7 +8,7 @@ public class MarsmallowBehavior : MonoBehaviour {
     public Color white;
     public Color orange;
     public Color black;
-
+    public Color currentColor;
 	// Use this for initialization
 	void Awake () {
         Debug.Log("Start");
@@ -31,7 +31,7 @@ public class MarsmallowBehavior : MonoBehaviour {
 
     public void applyColorIndex(float newColorIndex)
     {
-        Debug.Log("Apply col ind");
+
         if (material != null)
         {
             if (newColorIndex > 0 && newColorIndex <= 75)
@@ -48,6 +48,7 @@ public class MarsmallowBehavior : MonoBehaviour {
         {
             Debug.Log("Error! Material does not exist!");
         }
+        currentColor = material.GetColor("_Color");
     }
 
 }

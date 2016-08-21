@@ -2,13 +2,14 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
 
 
-
-
+    public Sprite[] sprites;
+    public GameObject finishScreen;
     /*
     //USED FOR MARSHMALLOW GENERATION
 
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour {
     public GameObject winningText2;
     public GameObject winnerPicture;
     public EllipsoidParticleEmitter ep;
+    public GameObject[] marshmallows = new GameObject[4];
     public FireManager fm;
     void Awake()
     {
@@ -69,9 +71,11 @@ public class GameController : MonoBehaviour {
             x = waterLevel.position.x;
             z = waterLevel.position.z;
             marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
+
             for(int i =0;i<4;i++)
             {
-                (Instantiate(marshmallow, spawnMashLocations[i].position,Quaternion.identity) as GameObject).GetComponent<MarshmallowRoasting>().index = i;
+                marshmallows[i] = Instantiate(marshmallow, spawnMashLocations[i].position, Quaternion.identity) as GameObject;
+                marshmallows[i].GetComponent<MarshmallowRoasting>().index = i;
                 
             }
             
@@ -159,11 +163,35 @@ public class GameController : MonoBehaviour {
     }
     public void ActiveWinnerScreen(List<int> winners)
     {
+        if (winners.Count == 2)
+        {
+            endScreen.draw2.txt1.text += " Players " + (winners[0]+1).ToString() + " AND " + (winners[1]+1) + " ! ";
+            endScreen.draw2.gameObject.SetActive(true);
+            endScreen.draw2.img1.GetComponent<Image>().sprite = sprites[winners[0]];
+            endScreen.draw2.img2.GetComponent<Image>().sprite = sprites[winners[1]];
+        }
+        else if(winners.Count == 3)
+        {
+            endScreen.draw.txt1.text += " Players " + winners[0].ToString()+" , "+( winners[1]+1) + " AND " + (winners[2]+1) + " ! ";
+            endScreen.draw.gameObject.SetActive(true);
+            endScreen.draw.img1.GetComponent<Image>().sprite = sprites[winners[0]];
+            endScreen.draw.img2.GetComponent<Image>().sprite = sprites[winners[1]];
+            endScreen.draw.img3.GetComponent<Image>().sprite = sprites[winners[2]];
+        }
+        else if(winners.Count>3)
+        {
+            endScreen.draw3.gameObject.SetActive(true);
+        }
+        else
+        {
+            finishScreen.GetComponent<Animation>().Play("FinishScreen");
+            winnerScreen.SetActive(true);
+            winningText1.SetActive(true);
+            winningText2.SetActive(true);
+            winnerPicture.SetActive(true);
+            winnerPicture.GetComponent<Image>().sprite = sprites[winners[0]];
+        }
         stateGame = E_GAME_STATE.ENDSCREEN;
-        winnerScreen.SetActive(true);
-        winningText1.SetActive(true);
-        winningText2.SetActive(true);
-        winnerPicture.SetActive(true);
     }
     private void backToMenu()
     {

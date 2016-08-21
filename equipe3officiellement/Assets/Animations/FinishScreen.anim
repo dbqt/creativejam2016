@@ -98,38 +98,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 1, y: 1, z: 1}
-        inSlope: {x: 0, y: 0.15270337, z: 0}
-        outSlope: {x: 0, y: 0.15270337, z: 0}
-        tangentMode: 0
-      - time: 2.3333333
-        value: {x: 1, y: 1.3563079, z: 1}
-        inSlope: {x: 0, y: -1.691019, z: 0}
-        outSlope: {x: 0, y: -1.691019, z: 0}
-        tangentMode: 0
-      - time: 2.4166667
-        value: {x: 1, y: 1.0617455, z: 1}
-        inSlope: {x: 2.4750028, y: 3.9945436, z: 0}
-        outSlope: {x: 2.4750028, y: 3.9945436, z: 0}
-        tangentMode: 0
-      - time: 2.4833333
-        value: {x: 1.33, y: 1.83, z: 1}
-        inSlope: {x: 0.4950006, y: 2.366921, z: 0}
-        outSlope: {x: 0.4950006, y: 2.366921, z: 0}
-        tangentMode: 0
-      - time: 2.5666666
-        value: {x: 1, y: 1.2641684, z: 1}
-        inSlope: {x: -3.9600043, y: -6.7899866, z: 0}
-        outSlope: {x: -3.9600043, y: -6.7899866, z: 0}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Panel/Text
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -153,6 +121,28 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Panel/Image
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0.1602335, y: 0, z: 0}
+        outSlope: {x: 0.1602335, y: 0, z: 0}
+        tangentMode: 0
+      - time: 1.75
+        value: {x: 1.2804086, y: 1, z: 1}
+        inSlope: {x: -0.6261903, y: 0, z: 0}
+        outSlope: {x: -0.6261903, y: 0, z: 0}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0.9272551, y: 1, z: 1}
+        inSlope: {x: -1.4126141, y: 0, z: 0}
+        outSlope: {x: -1.4126141, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/WinningText2
   m_FloatCurves:
   - curve:
       serializedVersion: 2
@@ -179,66 +169,6 @@ AnimationClip:
     path: Panel/Player Text
     classID: 114
     script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -0.5
-        outSlope: -0.5
-        tangentMode: 10
-      - time: 2
-        value: 0
-        inSlope: 1.75
-        outSlope: 1.75
-        tangentMode: 10
-      - time: 2.25
-        value: 1
-        inSlope: 4
-        outSlope: 4
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Color.a
-    path: Panel/Text
-    classID: 114
-    script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 14
-        inSlope: 33.876923
-        outSlope: 33.876923
-        tangentMode: 10
-      - time: 2.1666667
-        value: 87.4
-        inSlope: -171.46173
-        outSlope: -171.46173
-        tangentMode: 10
-      - time: 2.25
-        value: 56
-        inSlope: 35.100037
-        outSlope: 35.100037
-        tangentMode: 10
-      - time: 2.3166666
-        value: 85.8
-        inSlope: 931.50085
-        outSlope: 931.50085
-        tangentMode: 10
-      - time: 2.3333333
-        value: 109.4
-        inSlope: 1416.0012
-        outSlope: 1416.0012
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Panel/Text
-    classID: 224
-    script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -298,6 +228,46 @@ AnimationClip:
     attribute: m_LocalPosition.z
     path: Panel/Image
     classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 14
+        inSlope: 26.857143
+        outSlope: 26.857143
+        tangentMode: 10
+      - time: 1.75
+        value: 61
+        inSlope: 63.428574
+        outSlope: 63.428574
+        tangentMode: 10
+      - time: 2
+        value: 86
+        inSlope: 100
+        outSlope: 100
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: Panel/WinningText2
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Panel
+    classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -494,31 +464,6 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -0.5
-        outSlope: -0.5
-        tangentMode: 10
-      - time: 2
-        value: 0
-        inSlope: 1.75
-        outSlope: 1.75
-        tangentMode: 10
-      - time: 2.25
-        value: 1
-        inSlope: 4
-        outSlope: 4
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Color.a
-    path: Panel/Text
-    classID: 114
-    script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
         inSlope: -0.31518793
         outSlope: -0.31518793
         tangentMode: 10
@@ -638,41 +583,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 14
-        inSlope: 33.876923
-        outSlope: 33.876923
-        tangentMode: 10
-      - time: 2.1666667
-        value: 87.4
-        inSlope: -171.46173
-        outSlope: -171.46173
-        tangentMode: 10
-      - time: 2.25
-        value: 56
-        inSlope: 35.100037
-        outSlope: 35.100037
-        tangentMode: 10
-      - time: 2.3166666
-        value: 85.8
-        inSlope: 931.50085
-        outSlope: 931.50085
-        tangentMode: 10
-      - time: 2.3333333
-        value: 109.4
-        inSlope: 1416.0012
-        outSlope: 1416.0012
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Panel/Text
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
         value: 0
         inSlope: -30.222221
         outSlope: -30.222221
@@ -687,111 +597,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
     path: Panel/Player Text
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.3333333
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.4166667
-        value: 1
-        inSlope: 2.4750028
-        outSlope: 2.4750028
-        tangentMode: 10
-      - time: 2.4833333
-        value: 1.33
-        inSlope: 0.4950006
-        outSlope: 0.4950006
-        tangentMode: 10
-      - time: 2.5666666
-        value: 1
-        inSlope: -3.9600043
-        outSlope: -3.9600043
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.x
-    path: Panel/Text
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0.15270337
-        outSlope: 0.15270337
-        tangentMode: 10
-      - time: 2.3333333
-        value: 1.3563079
-        inSlope: -1.691019
-        outSlope: -1.691019
-        tangentMode: 10
-      - time: 2.4166667
-        value: 1.0617455
-        inSlope: 3.9945436
-        outSlope: 3.9945436
-        tangentMode: 10
-      - time: 2.4833333
-        value: 1.83
-        inSlope: 2.366921
-        outSlope: 2.366921
-        tangentMode: 10
-      - time: 2.5666666
-        value: 1.2641684
-        inSlope: -6.7899866
-        outSlope: -6.7899866
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.y
-    path: Panel/Text
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.3333333
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.4166667
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.4833333
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.5666666
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.z
-    path: Panel/Text
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -923,6 +728,121 @@ AnimationClip:
     attribute: m_LocalScale.z
     path: Panel/Image
     classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 14
+        inSlope: 26.857143
+        outSlope: 26.857143
+        tangentMode: 10
+      - time: 1.75
+        value: 61
+        inSlope: 63.428574
+        outSlope: 63.428574
+        tangentMode: 10
+      - time: 2
+        value: 86
+        inSlope: 100
+        outSlope: 100
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: Panel/WinningText2
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0.1602335
+        outSlope: 0.1602335
+        tangentMode: 10
+      - time: 1.75
+        value: 1.2804086
+        inSlope: -0.6261903
+        outSlope: -0.6261903
+        tangentMode: 10
+      - time: 2
+        value: 0.9272551
+        inSlope: -1.4126141
+        outSlope: -1.4126141
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: Panel/WinningText2
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1.75
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: Panel/WinningText2
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1.75
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: Panel/WinningText2
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Panel
+    classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
