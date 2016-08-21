@@ -349,10 +349,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 6.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.92387944, z: -0, w: 0.38268372}
+  m_LocalPosition: {x: -4, y: 0.5, z: 4}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 134.751, z: 0}
   m_Children:
   - {fileID: 490112}
   - {fileID: 484562}
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   PropulsorRange: 4
   PropulsorForce: 2
   FireExtinguishingPower: 1
-  MaxSpeed: 0
+  MaxSpeed: 3
   GroundMask:
     serializedVersion: 2
     m_Bits: 256
