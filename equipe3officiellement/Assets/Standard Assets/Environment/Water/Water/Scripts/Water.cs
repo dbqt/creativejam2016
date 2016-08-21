@@ -22,6 +22,8 @@ namespace UnityStandardAssets.Water
         public LayerMask reflectLayers = -1;
         public LayerMask refractLayers = -1;
 
+        public AudioSource waterfallSound;
+
 
         private Dictionary<Camera, Camera> m_ReflectionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
         private Dictionary<Camera, Camera> m_RefractionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
@@ -194,19 +196,37 @@ namespace UnityStandardAssets.Water
 
             float audioLvl = Mathf.Clamp(
             Mathf.Lerp(
-                MIN_WTR_LVL,
-                MAX_WTR_LVL,
-                (transform.position.y / (MAX_WTR_LVL - MIN_WTR_LVL))),
-            MAX_VOL,
-            MIN_VOL);
+                MAX_VOL,
+                MIN_VOL,
+                (1 / (MAX_WTR_LVL - transform.position.y) )),
+            MIN_VOL,
+            MAX_VOL);
             return audioLvl;
         }
 
+        void Start()
+        {
+            waterfallSound = GetComponent<AudioSource>();
+            if (waterfallSound == null)
+            {
+                Debug.Log("Error Loading Sound");
+            }
+        }
 
         // This just sets up some matrices in the material; for really
         // old cards to make water texture scroll.
         void Update()
         {
+            //SOUND
+
+            //Waterfall sound must always be ON
+            if (waterfallSound.isPlaying == false)
+            {
+                waterfallSound.Play();
+            }
+
+            waterfallSound.volume = getSndVol();
+
             if (!GetComponent<Renderer>())
             {
                 return;
@@ -232,11 +252,6 @@ namespace UnityStandardAssets.Water
 
             mat.SetVector("_WaveOffset", offsetClamped);
             mat.SetVector("_WaveScale4", waveScale4);
-
-            //SOUND
-
-
-
 
         }
 

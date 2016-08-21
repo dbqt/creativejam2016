@@ -56,9 +56,13 @@ public class GameController : MonoBehaviour {
     public GameObject winnerPicture;
     public EllipsoidParticleEmitter ep;
     public FireManager fm;
+    private AudioSource musicSource;
+    
+
     void Awake()
     {
-        instance = this;    
+        instance = this;
+        
     }
     // Use this for initialization
     void Start () {
@@ -74,7 +78,8 @@ public class GameController : MonoBehaviour {
                 (Instantiate(marshmallow, spawnMashLocations[i].position,Quaternion.identity) as GameObject).GetComponent<MarshmallowRoasting>().index = i;
                 
             }
-            
+            musicSource = GetComponent<AudioSource>();
+            musicSource.Play();
             UnlockGame();
         }
 
