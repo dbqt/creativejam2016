@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 164188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350d3c201cf64b04092ec1f4b59a2c42, type: 3}
+  m_Script: {fileID: 11500000, guid: ae71f42700e1fa24a843407da3a7732b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   marshmallow: {fileID: 106970, guid: 4b9e5a0c16029b2449ab15080cb9f33a, type: 2}
@@ -59,8 +59,8 @@ MonoBehaviour:
   marshGoal: 0
   stateGame: 2
   endScreen: {fileID: 0}
-  winnerScreen: {fileID: 0}
-  winningText1: {fileID: 0}
+  winnerScreen: {fileID: 177500, guid: d0a77f4e896e4c84e89a151d3fd3efd9, type: 2}
+  winningText1: {fileID: 100006, guid: b544816461f324e56a39767fdeb5b114, type: 2}
   winningText2: {fileID: 0}
   winnerPicture: {fileID: 0}
   ep: {fileID: 0}
