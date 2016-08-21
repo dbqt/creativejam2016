@@ -12,10 +12,14 @@ public class FireManager : MonoBehaviour {
     public Vector2 mapSize;
     public GroundController[][] map;
     public GroundController groundTile;
-	// Use this for initialization
-	void Start () {
-        map = new GroundController[(int)mapSize.x][];
 
+    private AudioSource flameAudio;
+    private float avgFlameLevel;
+    // Use this for initialization
+
+    void Start () {
+        map = new GroundController[(int)mapSize.x][];
+        flameAudio = GetComponent<AudioSource>();
         for (int x=0;x<mapSize.x;x++)
         {
             map[x] = new GroundController[(int)mapSize.y];
@@ -28,6 +32,7 @@ public class FireManager : MonoBehaviour {
                 map[x][y] = newGC;
             }
         }
+
         //assign neighbours
         for (int x = 0; x < mapSize.x; x++)
         {
@@ -56,6 +61,7 @@ public class FireManager : MonoBehaviour {
                     map[x][y].node.neighbours.Add(new KeyValuePair<E_SIDE, Node>(E_SIDE.SOUTH,map[x][y-1].node));
             }
         }
+
      for(int x =0;x<fireCenterSize;x++)
         {
             for (int y = 0; y < fireCenterSize; y++)
@@ -66,6 +72,8 @@ public class FireManager : MonoBehaviour {
         }
 
     }
+
+
 	public void StopFire()
     {
         for (int x = 0; x < mapSize.x; x++)
@@ -79,8 +87,68 @@ public class FireManager : MonoBehaviour {
             }
         }
     }
+
+    float updateAvgFlameLvl()
+    {
+        /*
+        float avg = 0;
+        for (int i =0; i<mapSize.x; ++i)
+        {
+            for (int j = 0; j < mapSize.y; ++j)
+            {
+                avg += map[i][j].node.flameLevel;
+            }
+        }
+        */
+        int count = 0;
+        for (int i = 0; i < mapSize.x; ++i)
+        {
+            for (int j = 0; j < mapSize.y; ++j)
+            {
+                if (map[i][j].node.flameLevel > 4.0f)
+                {
+                    count++;
+                }
+            }
+        }
+
+        return (count/(mapSize.x * mapSize.y));
+    }
+
+    float getAudioVol()
+    {
+        const float MIN_VOL = 0.00f;
+        const float MAX_VOL = 1.00f;
+        const float MIN_FLAME_LVL = 0.00f;
+        const float MAX_FLAME_LVL = 10.00f;
+
+        float audioLvl = Mathf.Clamp(
+            Mathf.Lerp(
+                MIN_FLAME_LVL,
+                MAX_FLAME_LVL,
+                (avgFlameLevel/10)),
+            MIN_VOL,
+            MAX_VOL);
+        return audioLvl;
+    }
+
 	// Update is called once per frame
 	void Update () {
-	    
+        avgFlameLevel = updateAvgFlameLvl();
+        if (avgFlameLevel > 0.00f)
+        {
+            if (flameAudio.isPlaying == false)
+            {
+                flameAudio.Play();
+            }
+            flameAudio.volume = getAudioVol(); 
+        }
+        else
+        {
+            if(flameAudio.isPlaying == true)
+            {
+                flameAudio.Stop();
+            }
+        }
 	}
 }

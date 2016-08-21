@@ -185,6 +185,23 @@ namespace UnityStandardAssets.Water
             m_RefractionCameras.Clear();
         }
 
+        float getSndVol()
+        {
+            const float MIN_VOL = 0.5f;
+            const float MAX_VOL = 1.0f;
+            const float MIN_WTR_LVL = -3.0f;
+            const float MAX_WTR_LVL = 0.2f;
+
+            float audioLvl = Mathf.Clamp(
+            Mathf.Lerp(
+                MIN_WTR_LVL,
+                MAX_WTR_LVL,
+                (transform.position.y / (MAX_WTR_LVL - MIN_WTR_LVL))),
+            MAX_VOL,
+            MIN_VOL);
+            return audioLvl;
+        }
+
 
         // This just sets up some matrices in the material; for really
         // old cards to make water texture scroll.
@@ -215,6 +232,12 @@ namespace UnityStandardAssets.Water
 
             mat.SetVector("_WaveOffset", offsetClamped);
             mat.SetVector("_WaveScale4", waveScale4);
+
+            //SOUND
+
+
+
+
         }
 
         void UpdateCameraModes(Camera src, Camera dest)
