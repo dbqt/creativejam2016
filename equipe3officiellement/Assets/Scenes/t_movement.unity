@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 142823595}
   m_Layer: 0
-  m_Name: Player4 Spawn
+  m_Name: Player4MashSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -437,6 +437,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11491178, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
+      propertyPath: spawnMashLocations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 423878, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -521,6 +525,22 @@ Prefab:
       propertyPath: ep
       value: 
       objectReference: {fileID: 572902575}
+    - target: {fileID: 11491178, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
+      propertyPath: spawnMashLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 306139203}
+    - target: {fileID: 11491178, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
+      propertyPath: spawnMashLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 495158010}
+    - target: {fileID: 11491178, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
+      propertyPath: spawnMashLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 599431564}
+    - target: {fileID: 11491178, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
+      propertyPath: spawnMashLocations.Array.data[3]
+      value: 
+      objectReference: {fileID: 142823595}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72792469a2df7d5408367e0b2a8a0085, type: 2}
   m_IsPrefabParent: 0
@@ -533,7 +553,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 306139203}
   m_Layer: 0
-  m_Name: Player1 Spawn
+  m_Name: Player1MashSpawn
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -904,7 +924,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 495158010}
   m_Layer: 0
-  m_Name: Player2 Spawn
+  m_Name: Player2MashSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1010,7 +1030,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 599431564}
   m_Layer: 0
-  m_Name: Player3 Spawn
+  m_Name: Player3MashSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1971,7 +1991,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 433078, guid: 5308b873331c92b40830fa10557d61f9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.79
       objectReference: {fileID: 0}
     - target: {fileID: 433078, guid: 5308b873331c92b40830fa10557d61f9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1979,7 +1999,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433078, guid: 5308b873331c92b40830fa10557d61f9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.3
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 433078, guid: 5308b873331c92b40830fa10557d61f9, type: 2}
       propertyPath: m_LocalRotation.x

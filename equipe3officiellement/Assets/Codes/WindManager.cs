@@ -46,6 +46,6 @@ public class WindManager : MonoBehaviour {
 
         timer = Time.time  + Random.Range(windChangeRange.x, windChangeRange.y);
 
-        transform.eulerAngles = new Vector3(0f, Mathf.Rad2Deg* Mathf.Atan2(-windVector.normalized.x, -windVector.normalized.y), 0f);
+        transform.eulerAngles = new Vector3(0f, Mathf.Rad2Deg* Mathf.Atan2(-windVector.normalized.x, -windVector.normalized.y),0f);
     }
 }

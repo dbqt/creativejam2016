@@ -24,8 +24,7 @@ public class GameController : MonoBehaviour {
     
     //MARSHMALLOW - public
     public GameObject marshmallow;
-    public Transform spawnLocation;
-
+    public Transform[] spawnMashLocations;
     //MARSHMALLOW - private
     private GameObject newMarshmallow;
 
@@ -71,8 +70,10 @@ public class GameController : MonoBehaviour {
             marshGoal = Random.Range(minDesiredMarshmallow, maxDesiredMarshmallow);
             for(int i =0;i<4;i++)
             {
-                (Instantiate(marshmallow,spawnLocation.GetChild(i).position,Quaternion.identity) as GameObject).GetComponent<MarshmallowRoasting>().index = i;
+                (Instantiate(marshmallow, spawnMashLocations[i].position,Quaternion.identity) as GameObject).GetComponent<MarshmallowRoasting>().index = i;
+                
             }
+            
             UnlockGame();
         }
 
