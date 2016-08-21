@@ -9,11 +9,15 @@ public class EndScreenManager : MonoBehaviour {
     public Text[] commentText;
     public JudgeManager judge;
     public Text winnerText;
+    public Draw2Controller draw2;
+    public Draw3Controller draw3;
+    public GameObject draw;
     private bool[] finished = new bool[4];
     private bool[] finishedDuplicate = new bool[4];
     private bool readyPickWinner;
     private bool winnerPicked;
     private bool doublingCheck;
+
     // Use this for initialization
     void Start () {
         StartCoroutine(StartShowScore());
@@ -64,7 +68,7 @@ public class EndScreenManager : MonoBehaviour {
         }
         if(winnerPicked)
         {
-            GameController.instance.ShowWinner();
+            GameController.instance.ShowWinner(judge.winners);
             this.enabled = false;
         }
     }
