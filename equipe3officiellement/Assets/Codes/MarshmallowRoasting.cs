@@ -19,7 +19,7 @@ public class MarshmallowRoasting : MonoBehaviour {
         // The grid surrounding the marshmallow.
         Collider[] grounds = Physics.OverlapBox(
             transform.position,
-            Vector3.one * RoastingRange,
+            Vector3.one * RoastingRange+Vector3.up*2,
             Quaternion.identity,
             GroundMask);
 
