@@ -8,6 +8,7 @@ public class EndScreenManager : MonoBehaviour {
     public RectTransform[] PlayerMellow;
     public Text[] commentText;
     public JudgeManager judge;
+    public Text winnerText;
     private bool[] finished = new bool[4];
     private bool[] finishedDuplicate = new bool[4];
     private bool readyPickWinner;
@@ -16,6 +17,7 @@ public class EndScreenManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         StartCoroutine(StartShowScore());
+        GetComponent<Animation>().Play("EndScreen");
     }
 	
 	// Update is called once per frame
@@ -57,7 +59,7 @@ public class EndScreenManager : MonoBehaviour {
                 commentText[i].text = judge.answerString[i];
             }
             winnerPicked = true;
-            
+            winnerText.text = "Player " + (judge.winners[0]+1);
 
         }
         if(winnerPicked)
@@ -70,9 +72,9 @@ public class EndScreenManager : MonoBehaviour {
     {
         StartCoroutine(ShowScore(0));
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(ShowScore(2));
-        yield return new WaitForSeconds(0.5f);
         StartCoroutine(ShowScore(1));
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(ShowScore(2));
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(ShowScore(3));
         yield return new WaitForSeconds(5f);

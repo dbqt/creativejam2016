@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
     private bool isCreated = false;
     */
 
-    public enum E_GAME_STATE { START_MENU,SHOWING_MARSH,SHOWING_MAP,PLAYING,ENDSCREEN}
+    public enum E_GAME_STATE { START_MENU,SHOWING_MARSH,SHOWING_MAP,PLAYING,SCORE_SCREEN,ENDSCREEN}
     
     //MARSHMALLOW - public
     public GameObject marshmallow;
@@ -111,6 +111,12 @@ public class GameController : MonoBehaviour {
                     StopGame();
                 }
                 break;
+            case E_GAME_STATE.ENDSCREEN:
+                if (Input.anyKeyDown)
+                {
+                    backToMenu();
+                }
+                break;
 
     }
        
@@ -128,27 +134,35 @@ public class GameController : MonoBehaviour {
     }
     void StopGame()
     {
-        endScreen.gameObject.SetActive( true);
+        
 
         fm.StopFire();
         
         StartCoroutine(ExtinguishSmoke());
     }
+    public void ShowScoreScreen()
+    {
+        endScreen.gameObject.SetActive(true);
+        
+    }
     private IEnumerator ExtinguishSmoke()
     {
         yield return new WaitForSeconds(0.5f);
         ep.emit = false;
+        Camera.main.GetComponent<Animation>().Play("EndScreenCamera");
     }
     public void ShowWinner()
     {
+        stateGame = E_GAME_STATE.SCORE_SCREEN;
+        ActiveWinnerScreen();
+    }
+    public void ActiveWinnerScreen()
+    {
+        stateGame = E_GAME_STATE.ENDSCREEN;
         winnerScreen.SetActive(true);
         winningText1.SetActive(true);
         winningText2.SetActive(true);
         winnerPicture.SetActive(true);
-        if (Input.anyKeyDown)
-        {
-            backToMenu();
-        }
     }
     private void backToMenu()
     {
