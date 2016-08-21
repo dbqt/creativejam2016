@@ -58,9 +58,13 @@ public class GameController : MonoBehaviour {
     public EllipsoidParticleEmitter ep;
     public GameObject[] marshmallows = new GameObject[4];
     public FireManager fm;
+    private AudioSource musicSource;
+    
+
     void Awake()
     {
-        instance = this;    
+        instance = this;
+        
     }
     // Use this for initialization
     void Start () {
@@ -78,7 +82,8 @@ public class GameController : MonoBehaviour {
                 marshmallows[i].GetComponent<MarshmallowRoasting>().index = i;
                 
             }
-            
+            musicSource = GetComponent<AudioSource>();
+            musicSource.Play();
             UnlockGame();
         }
 

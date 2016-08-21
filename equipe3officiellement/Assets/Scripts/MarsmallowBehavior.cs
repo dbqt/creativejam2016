@@ -11,11 +11,11 @@ public class MarsmallowBehavior : MonoBehaviour {
     public Color currentColor;
 	// Use this for initialization
 	void Awake () {
-        Debug.Log("Start");
+       
         material = gameObject.transform.FindChild("Capsule").GetComponent<MeshRenderer>().material;
         if (material == null)
         {
-            Debug.Log("Heeelp!");
+            Debug.Log("Marshmallow Material not found!");        
         }
         colorIndex = 0;
         material.SetColor("_Color", white);
@@ -31,7 +31,6 @@ public class MarsmallowBehavior : MonoBehaviour {
 
     public void applyColorIndex(float newColorIndex)
     {
-
         if (material != null)
         {
             if (newColorIndex > 0 && newColorIndex <= 75)
