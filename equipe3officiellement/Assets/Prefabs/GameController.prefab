@@ -40,20 +40,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350d3c201cf64b04092ec1f4b59a2c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marshmallow: {fileID: 1000012234403712, guid: 4b9e5a0c16029b2449ab15080cb9f33a,
-    type: 2}
-  spawnLocation: {fileID: 0}
+  marshmallow: {fileID: 106970, guid: 4b9e5a0c16029b2449ab15080cb9f33a, type: 2}
+  spawnMashLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   waterLevel: {fileID: 0}
-  totalTimeToFill: 60
+  totalTimeToFill: 50
   targetFullWaterLevel: 0.2
   minDesiredMarshmallow: 0
-  maxDesiredMarshmallow: 0
+  maxDesiredMarshmallow: 100
   marshIndex:
   - 0
   - 0
   - 0
   - 0
   marshGoal: 0
+  stateGame: 2
+  endScreen: {fileID: 0}
+  winnerScreen: {fileID: 0}
+  winningText1: {fileID: 0}
+  winningText2: {fileID: 0}
+  winnerPicture: {fileID: 0}
+  ep: {fileID: 0}
+  fm: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
