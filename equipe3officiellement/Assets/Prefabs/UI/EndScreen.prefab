@@ -948,12 +948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7d74ccaeb5c29419e1cb86664e7994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marshIndex:
-  - 0
-  - 0
-  - 0
-  - 0
-  marshGoal: 0
 --- !u!114 &11494424
 MonoBehaviour:
   m_ObjectHideFlags: 1
