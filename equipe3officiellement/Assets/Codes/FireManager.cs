@@ -67,7 +67,8 @@ public class FireManager : MonoBehaviour {
             for (int y = 0; y < fireCenterSize; y++)
             {
                 map[x + (int)(mapSize.x / 2f )- (int)(fireCenterSize / 2f)][y + (int)(mapSize.y / 2f) - (int)(fireCenterSize / 2f)].node.flameLevel = centerIntensity;
-               
+                map[x + (int)(mapSize.x / 2f) - (int)(fireCenterSize / 2f)][y + (int)(mapSize.y / 2f) - (int)(fireCenterSize / 2f)].node.isInvincible = true;
+
             }
         }
 
