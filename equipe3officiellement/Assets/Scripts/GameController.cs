@@ -55,12 +55,14 @@ public class GameController : MonoBehaviour {
     public GameObject winningText1;
     public GameObject winningText2;
     public GameObject winnerPicture;
+    public ParticleSystem ps;
     public EllipsoidParticleEmitter ep;
     public GameObject[] marshmallows = new GameObject[4];
     public FireManager fm;
     private AudioSource musicSource;
     private ControlManager ctrl;
-
+    public AudioClip congratulationsSound;
+    public AudioSource expl;
     void Awake()
     {
         instance = this;
@@ -208,15 +210,26 @@ public class GameController : MonoBehaviour {
             winnerPicture.GetComponent<Image>().sprite = sprites[winners[0]];
         }
         stateGame = E_GAME_STATE.ENDSCREEN;
+        StartCoroutine(Congratulations());
     }
+    
+    IEnumerator Congratulations()
+    {
+        yield return new WaitForSeconds(2);
+        musicSource.clip = congratulationsSound;
+        musicSource.Play();
+
+    }
+
     private void backToMenu()
     {
         SceneManager.LoadScene(0);
     }
-    public void UnlockGame()
+    public IEnumerator UnlockDelay()
     {
-        stateGame = E_GAME_STATE.PLAYING;
         fm.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        stateGame = E_GAME_STATE.PLAYING;
         timerStarted = true;
         timer = totalTimeToFill;
         ctrl.Player1.GetComponent<PlayerMovement>().isLocked = false;
@@ -224,4 +237,12 @@ public class GameController : MonoBehaviour {
         ctrl.Player3.GetComponent<PlayerMovement>().isLocked = false;
         ctrl.Player4.GetComponent<PlayerMovement>().isLocked = false;
     }
+    public void UnlockGame()
+    {
+        //musicSource.clip = fireballSnd;
+        expl.Play();
+        ps.gameObject.SetActive(true);
+        StartCoroutine(UnlockDelay());
+    }
+    
 }

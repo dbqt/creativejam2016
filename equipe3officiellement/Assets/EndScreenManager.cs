@@ -20,9 +20,12 @@ public class EndScreenManager : MonoBehaviour {
     private bool winnerPicked;
     private bool done;
     private bool doublingCheck;
+    private AudioSource clappingSound;
 
     // Use this for initialization
     void Start () {
+        clappingSound = GetComponent<AudioSource>();
+        clappingSound.Play();
         StartCoroutine(StartShowScore());
         GetComponent<Animation>().Play("EndScreen");
         for (int i = 0; i < 4; i++)
